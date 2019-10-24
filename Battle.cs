@@ -20,12 +20,7 @@ namespace WarriorsGame
             // We don't know when the loop is going to end
             while (true)
             {
-                if (GetAttackResult(warrior1, warrior2) == "Game Over")
-                {
-                    Console.WriteLine("Game Over");
-                    break;
-                }
-                if (GetAttackResult(warrior2, warrior1) == "Game Over")
+                if (GetAttackResult(warrior1, warrior2) == "Game Over" || GetAttackResult(warrior2, warrior1) == "Game Over")
                 {
                     Console.WriteLine("Game Over");
                     break;
@@ -45,14 +40,7 @@ namespace WarriorsGame
             double damage2WarriorB = warriorA_attackAmount - warriorB_blockAmount;
 
             // If there was any damage, update warrior's health
-            if (damage2WarriorB > 0)
-            {
-                warriorB.Health = warriorB.Health - damage2WarriorB;
-            }
-            else
-            {
-                damage2WarriorB = 0;
-            }
+            warriorB.Health -= damage2WarriorB > 0 ? damage2WarriorB : damage2WarriorB = 0;
 
             // Print out info on who attacked whom and for how much damage
             Console.WriteLine($"{warriorA.Name} Attacks {warriorB.Name} and Deals {damage2WarriorB} Damage");
@@ -68,10 +56,8 @@ namespace WarriorsGame
                 return "Game Over";
             }
             else
-            {
                 return "Fight Again";
-            }
-
         }
+
     }
 }

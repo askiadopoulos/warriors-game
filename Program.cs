@@ -11,8 +11,8 @@ namespace WarriorsGame
         static void Main(string[] args)
         {
             // Create and initiate the objects
-            Warrior maximus = new Warrior("Maximus", 1000, 120, 40);
-            Warrior spartacus = new Warrior("Spartacus", 1000, 120, 40);
+            Warrior maximus = new Warrior("Maximus", 100, 80, 40);
+            Warrior spartacus = new Warrior("Spartacus", 100, 80, 40);
 
             // Initiate the fight
             Battle.StartFight(maximus, spartacus);
